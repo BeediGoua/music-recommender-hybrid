@@ -84,7 +84,7 @@ MUSIC-RECOMMENDER-HYBRID/
 
 ```bash
 # 1. Cloner le repository
-git clone https://github.com/votre-username/music-recommender-hybrid.git
+git clone https://github.com/BeediGoua/music-recommender-hybrid.git
 cd music-recommender-hybrid
 
 # 2. Créer un environnement virtuel
@@ -110,7 +110,7 @@ Le système utilise un dataset de métadonnées musicales contenant :
 - **Années** de sortie
 - **Métadonnées** additionnelles (tempo, clé, etc.)
 
-> **Note** : Placez vos données dans le dossier `data/raw/` au format CSV avec les colonnes requises.
+> **Note** : Placez vos données dans le dossier `data` au format CSV avec les colonnes requises.
 
 ## Installation détaillée
 
@@ -118,7 +118,7 @@ Le système utilise un dataset de métadonnées musicales contenant :
 
 ```bash
 # Cloner avec les sous-modules
-git clone --recursive https://github.com/votre-username/music-recommender-hybrid.git
+git clone --recursive https://github.com/BeediGoua/music-recommender-hybrid.git
 
 # Créer un environnement conda (alternative)
 conda create -n music-rec python=3.9
@@ -140,8 +140,8 @@ pip install plotly seaborn matplotlib
 ### 3. Configuration avancée
 
 ```bash
-# Variables d'environnement (optionnel)
-export MUSIC_DATA_PATH="data/raw/music_dataset.csv"
+# Variables d'environnement 
+export MUSIC_DATA_PATH="data/music_dataset.csv"
 export MODEL_CACHE_DIR="outputs/models/"
 ```
 
@@ -226,7 +226,7 @@ graph TD
 Les contributions sont les bienvenues ! Voici comment participer :
 
 ### Signaler un bug
-1. Vérifiez les [issues existantes](https://github.com/votre-username/music-recommender-hybrid/issues)
+1. Vérifiez les [issues existantes](https://github.com/BeediGoua/music-recommender-hybrid.git/issues)
 2. Créez une nouvelle issue avec le template bug
 3. Incluez des étapes de reproduction détaillées
 
@@ -261,15 +261,14 @@ git push origin feature/ma-nouvelle-fonctionnalite
 **GOUA Beedi**  
 *Data Scientist Junior*
 
-- [LinkedIn](https://linkedin.com/in/goua-beedi)
-- [GitHub](https://github.com/goua-beedi)
-- [Email](mailto:goua.beedi@email.com)
+- [GitHub](https://github.com/BeediGoua)
+- [Email](mailto:gouabeedi@gmail.com)
 
 ---
 
 ## Licence
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+Ce projet est sous licence MIT. 
 
 ---
 
@@ -286,6 +285,6 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 **Si ce projet vous aide, n'hésitez pas à lui donner une étoile !**
 
-[Signaler un bug](https://github.com/votre-username/music-recommender-hybrid/issues) • [Demander une fonctionnalité](https://github.com/votre-username/music-recommender-hybrid/issues) • [Contribuer](CONTRIBUTING.md)
+[Signaler un bug](https://github.com/BeediGoua/music-recommender-hybrid.git/issues) • [Demander une fonctionnalité](https://github.com/BeediGoua/music-recommender-hybrid.git/issues) • [Contribuer](CONTRIBUTING.md)
 
 </div>
