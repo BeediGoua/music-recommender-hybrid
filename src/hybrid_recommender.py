@@ -91,7 +91,7 @@ def show_reco_detail(results, songs_df):
             "title": row['title'],
             "artist": row['artist'],
             "genre": row['genre'],
-            "duration_sec": row['duration_sec'],  # ✅
+            "duration_sec": row['duration_sec'],  
             "score": score
         })
     df = pd.DataFrame(out)

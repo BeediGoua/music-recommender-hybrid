@@ -122,7 +122,7 @@ with col1:
     same_genre = st.checkbox("Même genre uniquement", value=True)
 
     duration_range = st.slider(
-        "⏱️ Plage de durée (sec)",
+        "Plage de durée (sec)",
         int(songs_df['duration_sec'].min()),
         int(songs_df['duration_sec'].max()),
         (60, 300)
