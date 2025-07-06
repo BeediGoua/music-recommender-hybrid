@@ -1,0 +1,56 @@
+# Ignore l'environnement virtuel
+venv/
+ENV/
+env/
+
+# Ignore Python caches
+__pycache__/
+*.pyc
+
+# Ignore notebooks checkpoints 
+.ipynb_checkpoints/
+
+# Ignore fichiers de log éventuels
+logs/
+*.log
+
+# Ignore outputs intermédiaires
+outputs/
+*.pkl
+*.h5
+*.hdf5
+
+# Ignore données brutes ou volumineuses 
+
+data/processed/*.npy
+data/processed/*.model
+data/processed/*.pkl
+data/processed/*.csv
+outputs/*.pkl
+outputs/*.csv
+
+# Ignore modèles entraînés locaux
+models/
+*.bin
+
+# Ignore fichiers secrets (ex. : .env)
+.env
+
+# Ignore fichiers générés par l’IDE
+.vscode/
+.idea/
+
+# Ignore système (Mac, Windows)
+.DS_Store
+Thumbs.db
+
+# Ignore notebook output HTML si tu en génères
+*.html
+
+# Ignore caches de Streamlit si besoin
+.streamlit/
+
+# Optionnel : archives
+*.zip
+*.tar
+*.tar.gz
