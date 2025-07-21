@@ -84,26 +84,113 @@ def load_data_and_models():
         return create_premium_demo_data()
 
 def create_premium_demo_data():
-    """Créer des données de démonstration enrichies"""
+    """Créer des données de démonstration enrichies avec vrais titres"""
     genres = ['Pop', 'Rock', 'Electronic', 'Hip-Hop', 'Jazz', 'Classical', 'R&B', 'Country', 'Reggae', 'Blues']
     moods = ['Energetic', 'Chill', 'Happy', 'Melancholic', 'Aggressive', 'Romantic', 'Nostalgic', 'Uplifting']
     decades = [1970, 1980, 1990, 2000, 2010, 2020]
 
+    # Base de données réaliste de hits
+    real_songs = [
+        # Pop Hits
+        {'title': 'Blinding Lights', 'artist': 'The Weeknd', 'genre': 'Pop', 'decade': 2020, 'energy': 0.8, 'valence': 0.6},
+        {'title': 'Watermelon Sugar', 'artist': 'Harry Styles', 'genre': 'Pop', 'decade': 2020, 'energy': 0.7, 'valence': 0.8},
+        {'title': 'Levitating', 'artist': 'Dua Lipa', 'genre': 'Pop', 'decade': 2020, 'energy': 0.9, 'valence': 0.9},
+        {'title': 'Good 4 U', 'artist': 'Olivia Rodrigo', 'genre': 'Pop', 'decade': 2020, 'energy': 0.8, 'valence': 0.4},
+        {'title': 'Anti-Hero', 'artist': 'Taylor Swift', 'genre': 'Pop', 'decade': 2020, 'energy': 0.6, 'valence': 0.3},
+        {'title': 'Shape of You', 'artist': 'Ed Sheeran', 'genre': 'Pop', 'decade': 2010, 'energy': 0.8, 'valence': 0.9},
+        {'title': 'Someone Like You', 'artist': 'Adele', 'genre': 'Pop', 'decade': 2010, 'energy': 0.3, 'valence': 0.2},
+        {'title': 'Rolling in the Deep', 'artist': 'Adele', 'genre': 'Pop', 'decade': 2010, 'energy': 0.7, 'valence': 0.4},
+        
+        # Rock Classics
+        {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Rock', 'decade': 1970, 'energy': 0.8, 'valence': 0.6},
+        {'title': 'Hotel California', 'artist': 'Eagles', 'genre': 'Rock', 'decade': 1970, 'energy': 0.6, 'valence': 0.5},
+        {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Rock', 'decade': 1970, 'energy': 0.7, 'valence': 0.7},
+        {'title': 'Sweet Child O Mine', 'artist': 'Guns N Roses', 'genre': 'Rock', 'decade': 1980, 'energy': 0.9, 'valence': 0.8},
+        {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Rock', 'decade': 1990, 'energy': 0.9, 'valence': 0.5},
+        {'title': 'Wonderwall', 'artist': 'Oasis', 'genre': 'Rock', 'decade': 1990, 'energy': 0.7, 'valence': 0.7},
+        {'title': 'Mr. Brightside', 'artist': 'The Killers', 'genre': 'Rock', 'decade': 2000, 'energy': 0.8, 'valence': 0.6},
+        
+        # Hip-Hop
+        {'title': 'HUMBLE.', 'artist': 'Kendrick Lamar', 'genre': 'Hip-Hop', 'decade': 2010, 'energy': 0.9, 'valence': 0.7},
+        {'title': 'God\'s Plan', 'artist': 'Drake', 'genre': 'Hip-Hop', 'decade': 2010, 'energy': 0.6, 'valence': 0.8},
+        {'title': 'Lose Yourself', 'artist': 'Eminem', 'genre': 'Hip-Hop', 'decade': 2000, 'energy': 0.9, 'valence': 0.8},
+        {'title': 'INDUSTRY BABY', 'artist': 'Lil Nas X ft. Jack Harlow', 'genre': 'Hip-Hop', 'decade': 2020, 'energy': 0.9, 'valence': 0.9},
+        {'title': 'Sicko Mode', 'artist': 'Travis Scott', 'genre': 'Hip-Hop', 'decade': 2010, 'energy': 0.8, 'valence': 0.6},
+        
+        # Electronic
+        {'title': 'One More Time', 'artist': 'Daft Punk', 'genre': 'Electronic', 'decade': 2000, 'energy': 0.9, 'valence': 0.9},
+        {'title': 'Titanium', 'artist': 'David Guetta ft. Sia', 'genre': 'Electronic', 'decade': 2010, 'energy': 0.8, 'valence': 0.7},
+        {'title': 'Levels', 'artist': 'Avicii', 'genre': 'Electronic', 'decade': 2010, 'energy': 0.9, 'valence': 0.9},
+        {'title': 'Clarity', 'artist': 'Zedd ft. Foxes', 'genre': 'Electronic', 'decade': 2010, 'energy': 0.8, 'valence': 0.6},
+        
+        # Jazz
+        {'title': 'Take Five', 'artist': 'Dave Brubeck', 'genre': 'Jazz', 'decade': 1970, 'energy': 0.5, 'valence': 0.7},
+        {'title': 'What a Wonderful World', 'artist': 'Louis Armstrong', 'genre': 'Jazz', 'decade': 1970, 'energy': 0.3, 'valence': 0.9},
+        {'title': 'Fly Me to the Moon', 'artist': 'Frank Sinatra', 'genre': 'Jazz', 'decade': 1970, 'energy': 0.4, 'valence': 0.8},
+        {'title': 'Summertime', 'artist': 'Ella Fitzgerald', 'genre': 'Jazz', 'decade': 1970, 'energy': 0.3, 'valence': 0.6},
+        
+        # R&B
+        {'title': 'Crazy in Love', 'artist': 'Beyoncé', 'genre': 'R&B', 'decade': 2000, 'energy': 0.9, 'valence': 0.9},
+        {'title': 'No Scrubs', 'artist': 'TLC', 'genre': 'R&B', 'decade': 1990, 'energy': 0.7, 'valence': 0.8},
+        {'title': 'Superstition', 'artist': 'Stevie Wonder', 'genre': 'R&B', 'decade': 1970, 'energy': 0.8, 'valence': 0.8},
+        
+        # Classical
+        {'title': 'Für Elise', 'artist': 'Ludwig van Beethoven', 'genre': 'Classical', 'decade': 1970, 'energy': 0.4, 'valence': 0.6},
+        {'title': 'Canon in D', 'artist': 'Johann Pachelbel', 'genre': 'Classical', 'decade': 1970, 'energy': 0.3, 'valence': 0.8},
+        {'title': 'Clair de Lune', 'artist': 'Claude Debussy', 'genre': 'Classical', 'decade': 1970, 'energy': 0.2, 'valence': 0.7},
+    ]
+    
+    # Artistes supplémentaires pour compléter
+    additional_artists = [
+        'Bruno Mars', 'Ariana Grande', 'Post Malone', 'Billie Eilish', 'The Beatles', 
+        'Michael Jackson', 'Madonna', 'Prince', 'Radiohead', 'Coldplay', 'Maroon 5',
+        'OneRepublic', 'Imagine Dragons', 'Rihanna', 'Katy Perry', 'Justin Bieber',
+        'The Rolling Stones', 'Pink Floyd', 'AC/DC', 'Metallica', 'Foo Fighters'
+    ]
+    
     n_songs = 1000
+    
+    # Créer le dataset complet
+    track_ids = [f'demo_{i}' for i in range(n_songs)]
+    titles = []
+    artists = []
+    song_genres = []
+    song_decades = []
+    energies = []
+    valences = []
+    
+    # Utiliser d'abord les vrais hits
+    for i in range(min(len(real_songs), n_songs)):
+        song = real_songs[i]
+        titles.append(song['title'])
+        artists.append(song['artist'])
+        song_genres.append(song['genre'])
+        song_decades.append(song['decade'])
+        energies.append(song['energy'])
+        valences.append(song['valence'])
+    
+    # Compléter avec des titres générés
+    for i in range(len(real_songs), n_songs):
+        titles.append(f'Hit Song #{i-len(real_songs)+1}')
+        artists.append(random.choice(additional_artists))
+        song_genres.append(random.choice(genres))
+        song_decades.append(random.choice(decades))
+        energies.append(np.random.uniform(0, 1))
+        valences.append(np.random.uniform(0, 1))
 
     demo_songs = {
-        'track_id': [f'demo_{i}' for i in range(n_songs)],
-        'title': [f'Song Title {i}' for i in range(n_songs)],
-        'artist': [f'Artist {i//20}' for i in range(n_songs)],
-        'genre': [random.choice(genres) for _ in range(n_songs)],
+        'track_id': track_ids,
+        'title': titles,
+        'artist': artists,
+        'genre': song_genres,
         'duration_sec': np.random.uniform(120, 360, n_songs),
         'popularity': np.random.uniform(0, 100, n_songs),
-        'energy': np.random.uniform(0, 1, n_songs),
-        'valence': np.random.uniform(0, 1, n_songs),
+        'energy': energies,
+        'valence': valences,
         'danceability': np.random.uniform(0, 1, n_songs),
         'acousticness': np.random.uniform(0, 1, n_songs),
         'mood': [random.choice(moods) for _ in range(n_songs)],
-        'decade': [random.choice(decades) for _ in range(n_songs)],
+        'decade': song_decades,
         'tempo': np.random.uniform(60, 200, n_songs)
     }
 

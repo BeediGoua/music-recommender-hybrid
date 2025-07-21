@@ -38,21 +38,85 @@ st.markdown("""
 **Word2Vec + NLP • Machine Learning • Portfolio Project**
 """)
 
-# Génération de données démo
+# Génération de données démo réalistes
 @st.cache_data
 def generate_demo_data():
-    genres = ['Pop', 'Rock', 'Electronic', 'Hip-Hop', 'Jazz', 'Classical']
-    artists = ['Artist A', 'Artist B', 'Artist C', 'Artist D', 'Artist E']
+    genres = ['Pop', 'Rock', 'Electronic', 'Hip-Hop', 'Jazz', 'Classical', 'R&B', 'Country', 'Blues', 'Reggae']
     
+    # Vrais artistes et titres de démonstration
+    demo_songs = [
+        # Pop
+        {'title': 'Blinding Lights', 'artist': 'The Weeknd', 'genre': 'Pop'},
+        {'title': 'Watermelon Sugar', 'artist': 'Harry Styles', 'genre': 'Pop'},
+        {'title': 'Levitating', 'artist': 'Dua Lipa', 'genre': 'Pop'},
+        {'title': 'Good 4 U', 'artist': 'Olivia Rodrigo', 'genre': 'Pop'},
+        {'title': 'Anti-Hero', 'artist': 'Taylor Swift', 'genre': 'Pop'},
+        
+        # Rock
+        {'title': 'Bohemian Rhapsody', 'artist': 'Queen', 'genre': 'Rock'},
+        {'title': 'Hotel California', 'artist': 'Eagles', 'genre': 'Rock'},
+        {'title': 'Stairway to Heaven', 'artist': 'Led Zeppelin', 'genre': 'Rock'},
+        {'title': 'Sweet Child O Mine', 'artist': 'Guns N Roses', 'genre': 'Rock'},
+        {'title': 'Smells Like Teen Spirit', 'artist': 'Nirvana', 'genre': 'Rock'},
+        
+        # Hip-Hop
+        {'title': 'HUMBLE.', 'artist': 'Kendrick Lamar', 'genre': 'Hip-Hop'},
+        {'title': 'God\'s Plan', 'artist': 'Drake', 'genre': 'Hip-Hop'},
+        {'title': 'Lose Yourself', 'artist': 'Eminem', 'genre': 'Hip-Hop'},
+        {'title': 'INDUSTRY BABY', 'artist': 'Lil Nas X ft. Jack Harlow', 'genre': 'Hip-Hop'},
+        {'title': 'Sicko Mode', 'artist': 'Travis Scott', 'genre': 'Hip-Hop'},
+        
+        # Electronic
+        {'title': 'One More Time', 'artist': 'Daft Punk', 'genre': 'Electronic'},
+        {'title': 'Titanium', 'artist': 'David Guetta ft. Sia', 'genre': 'Electronic'},
+        {'title': 'Midnight City', 'artist': 'M83', 'genre': 'Electronic'},
+        {'title': 'Levels', 'artist': 'Avicii', 'genre': 'Electronic'},
+        {'title': 'Clarity', 'artist': 'Zedd ft. Foxes', 'genre': 'Electronic'},
+        
+        # Jazz
+        {'title': 'Take Five', 'artist': 'Dave Brubeck', 'genre': 'Jazz'},
+        {'title': 'What a Wonderful World', 'artist': 'Louis Armstrong', 'genre': 'Jazz'},
+        {'title': 'Fly Me to the Moon', 'artist': 'Frank Sinatra', 'genre': 'Jazz'},
+        {'title': 'Summertime', 'artist': 'Ella Fitzgerald', 'genre': 'Jazz'},
+        {'title': 'Blue in Green', 'artist': 'Miles Davis', 'genre': 'Jazz'},
+        
+        # R&B
+        {'title': 'Blurred Lines', 'artist': 'Robin Thicke', 'genre': 'R&B'},
+        {'title': 'Crazy in Love', 'artist': 'Beyoncé', 'genre': 'R&B'},
+        {'title': 'I Want It That Way', 'artist': 'Backstreet Boys', 'genre': 'R&B'},
+        {'title': 'No Scrubs', 'artist': 'TLC', 'genre': 'R&B'},
+        {'title': 'Superstition', 'artist': 'Stevie Wonder', 'genre': 'R&B'},
+        
+        # Classical
+        {'title': 'Für Elise', 'artist': 'Ludwig van Beethoven', 'genre': 'Classical'},
+        {'title': 'Canon in D', 'artist': 'Johann Pachelbel', 'genre': 'Classical'},
+        {'title': 'Clair de Lune', 'artist': 'Claude Debussy', 'genre': 'Classical'},
+        {'title': 'Ave Maria', 'artist': 'Franz Schubert', 'genre': 'Classical'},
+        {'title': 'The Four Seasons', 'artist': 'Antonio Vivaldi', 'genre': 'Classical'},
+    ]
+    
+    # Compléter avec quelques titres génériques si nécessaire
+    all_artists = ['Adele', 'Ed Sheeran', 'Bruno Mars', 'Ariana Grande', 'Post Malone', 
+                   'Billie Eilish', 'The Beatles', 'Michael Jackson', 'Madonna', 'Prince',
+                   'Radiohead', 'Coldplay', 'Maroon 5', 'OneRepublic', 'Imagine Dragons']
+    
+    for i in range(len(demo_songs), 100):
+        demo_songs.append({
+            'title': f'Hit Song {i-29}',
+            'artist': random.choice(all_artists),
+            'genre': random.choice(genres)
+        })
+    
+    # Ajouter les métadonnées
     songs = []
-    for i in range(100):
+    for i, song_data in enumerate(demo_songs):
         songs.append({
             'id': f'song_{i}',
-            'title': f'Song Title {i+1}',
-            'artist': random.choice(artists),
-            'genre': random.choice(genres),
+            'title': song_data['title'],
+            'artist': song_data['artist'],
+            'genre': song_data['genre'],
             'duration': random.randint(120, 300),
-            'popularity': random.randint(1, 100)
+            'popularity': random.randint(40, 100)
         })
     
     return songs
