@@ -177,7 +177,7 @@ MUSIC-RECOMMENDER-HYBRID/
 - Export et partage social
 
 ###  Démo en Ligne
- [**Voir la démo live**][![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://music-recommender-hybrid-ynuznvv4ql95di2eyeh48j) 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://music-recommender-hybrid-ynuznvv4ql95di2eyeh48j.streamlit.app) 
 
 ## Démarrage rapide
 
