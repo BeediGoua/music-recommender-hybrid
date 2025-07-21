@@ -157,7 +157,7 @@ MUSIC-RECOMMENDER-HYBRID/
 └── README.md                      # Documentation complète
 ```
 
-##  Démo ([![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://music-recommender-hybrid-ynuznvv4ql95di2eyeh48j.streamlit.app) )
+##  Démo ([![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://music-recommender-hybrid-pdhwkfkwrsrnytnv76xnhq.streamlit.app) )
 
 ###  Aperçu de l'Interface Premium
 
