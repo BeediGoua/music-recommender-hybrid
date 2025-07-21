@@ -16,7 +16,7 @@ import sys
 
 def create_project_structure():
     """Créer la structure de dossiers nécessaire"""
-    print("🏗️  Création de la structure de dossiers...")
+    print("  Création de la structure de dossiers...")
     
     directories = [
         "data/processed",
@@ -26,20 +26,20 @@ def create_project_structure():
     
     for directory in directories:
         Path(directory).mkdir(parents=True, exist_ok=True)
-        print(f"✅ Créé: {directory}")
+        print(f" Créé: {directory}")
 
 def load_and_process_data():
     """Charger et traiter les données Spotify"""
-    print("📊 Chargement et traitement des données...")
+    print(" Chargement et traitement des données...")
     
     # Charger le dataset principal
     data_path = Path("data/SpotifyFeatures.csv")
     if not data_path.exists():
-        print("❌ Erreur: data/SpotifyFeatures.csv non trouvé!")
+        print(" Erreur: data/SpotifyFeatures.csv non trouvé!")
         return None
     
     df = pd.read_csv(data_path)
-    print(f"📈 Dataset original chargé: {len(df)} morceaux")
+    print(f" Dataset original chargé: {len(df)} morceaux")
     
     # Nettoyer les données
     df_clean = df.copy()
@@ -73,18 +73,18 @@ def load_and_process_data():
     sample_size = min(10000, len(df_clean))  # Maximum 10k pour Streamlit Cloud
     df_sample = df_clean.sample(n=sample_size, random_state=42)
     
-    print(f"✅ Données nettoyées: {len(df_sample)} morceaux")
+    print(f" Données nettoyées: {len(df_sample)} morceaux")
     
     # Sauvegarder les données traitées
     processed_path = Path("data/processed/songs_metadata_clean.csv")
     df_sample.to_csv(processed_path, index=False)
-    print(f"💾 Données sauvegardées: {processed_path}")
+    print(f" Données sauvegardées: {processed_path}")
     
     return df_sample
 
 def create_word2vec_model(df):
     """Créer un modèle Word2Vec basé sur les genres musicaux"""
-    print("🧠 Création du modèle Word2Vec...")
+    print(" Création du modèle Word2Vec...")
     
     # Créer des pseudo-playlists basées sur les genres
     playlists = []
@@ -103,7 +103,7 @@ def create_word2vec_model(df):
         if len(playlist) >= 5:
             playlists.append(playlist)
     
-    print(f"📚 {len(playlists)} playlists créées pour l'entraînement")
+    print(f" {len(playlists)} playlists créées pour l'entraînement")
     
     # Entraîner le modèle Word2Vec
     model = Word2Vec(
@@ -119,13 +119,13 @@ def create_word2vec_model(df):
     # Sauvegarder le modèle
     model_path = Path("data/processed/word2vec.model")
     model.save(str(model_path))
-    print(f"✅ Modèle Word2Vec sauvegardé: {model_path}")
+    print(f" Modèle Word2Vec sauvegardé: {model_path}")
     
     return model
 
 def create_content_embeddings(df):
     """Créer les embeddings de contenu avec SentenceTransformer"""
-    print("🔤 Création des embeddings de contenu...")
+    print(" Création des embeddings de contenu...")
     
     try:
         # Utiliser un modèle léger pour les embeddings
@@ -143,25 +143,25 @@ def create_content_embeddings(df):
         # Sauvegarder les embeddings
         embeddings_path = Path("data/processed/content_embeddings.npy")
         np.save(embeddings_path, embeddings)
-        print(f"✅ Embeddings sauvegardés: {embeddings_path}")
-        print(f"📐 Forme des embeddings: {embeddings.shape}")
+        print(f" Embeddings sauvegardés: {embeddings_path}")
+        print(f" Forme des embeddings: {embeddings.shape}")
         
         return embeddings
         
     except Exception as e:
-        print(f"⚠️  Erreur avec SentenceTransformer, création d'embeddings factices...")
+        print(f"  Erreur avec SentenceTransformer, création d'embeddings factices...")
         
         # Créer des embeddings factices si SentenceTransformer échoue
         embeddings = np.random.rand(len(df), 384).astype(np.float32)
         embeddings_path = Path("data/processed/content_embeddings.npy")
         np.save(embeddings_path, embeddings)
-        print(f"✅ Embeddings factices créés: {embeddings_path}")
+        print(f" Embeddings factices créés: {embeddings_path}")
         
         return embeddings
 
 def create_streamlit_config():
     """Créer le fichier de configuration Streamlit"""
-    print("⚙️  Création de la configuration Streamlit...")
+    print("  Création de la configuration Streamlit...")
     
     config_content = """[server]
 maxUploadSize = 200
@@ -181,19 +181,19 @@ gatherUsageStats = false
     with open(config_path, "w", encoding="utf-8") as f:
         f.write(config_content)
     
-    print(f"✅ Configuration Streamlit créée: {config_path}")
+    print(f" Configuration Streamlit créée: {config_path}")
 
 def create_deployment_info():
     """Créer un fichier d'informations sur le déploiement"""
-    print("📋 Création des informations de déploiement...")
+    print(" Création des informations de déploiement...")
     
     info_content = """# Informations de Déploiement
 
 ## Fichiers créés automatiquement:
-- ✅ data/processed/songs_metadata_clean.csv
-- ✅ data/processed/word2vec.model  
-- ✅ data/processed/content_embeddings.npy
-- ✅ .streamlit/config.toml
+-  data/processed/songs_metadata_clean.csv
+-  data/processed/word2vec.model  
+-  data/processed/content_embeddings.npy
+-  .streamlit/config.toml
 
 ## Prêt pour le déploiement sur Streamlit Cloud!
 
@@ -209,11 +209,11 @@ def create_deployment_info():
     with open("DEPLOYMENT_INFO.md", "w", encoding="utf-8") as f:
         f.write(info_content)
     
-    print("✅ Informations de déploiement créées: DEPLOYMENT_INFO.md")
+    print(" Informations de déploiement créées: DEPLOYMENT_INFO.md")
 
 def main():
     """Fonction principale d'installation"""
-    print("🚀 === CONFIGURATION PROJET MUSIC RECOMMENDER ===")
+    print(" === CONFIGURATION PROJET MUSIC RECOMMENDER ===")
     print("   Préparation pour déploiement Streamlit Cloud\n")
     
     try:
@@ -243,15 +243,15 @@ def main():
         create_deployment_info()
         print()
         
-        print("🎉 === INSTALLATION TERMINÉE AVEC SUCCÈS! ===")
-        print("\n📌 Prochaines étapes:")
+        print(" === INSTALLATION TERMINÉE AVEC SUCCÈS! ===")
+        print("\n Prochaines étapes:")
         print("   1. Testez l'app: streamlit run app/streamlit_app.py")
         print("   2. Commitez et pushez sur GitHub")
         print("   3. Déployez sur Streamlit Cloud")
-        print("\n✨ Votre projet est maintenant prêt pour le portfolio!")
+        print("\n Votre projet est maintenant prêt pour le portfolio!")
         
     except Exception as e:
-        print(f"\n❌ ERREUR: {e}")
+        print(f"\n ERREUR: {e}")
         print("Vérifiez que toutes les dépendances sont installées.")
         return 1
     
