@@ -6,7 +6,7 @@
 
 Un moteur de recommandation de musique hybride innovant combinant **Word2Vec** et **NLP** pour suggérer des morceaux similaires de manière pertinente et interactive.
 
-🚀 **Version Premium Disponible** avec Dashboard Analytics, Mode Exploration IA, Système de Rating et Playlist Builder avancé !
+
 
 
 ## Table des matières
@@ -30,7 +30,7 @@ Un moteur de recommandation de musique hybride innovant combinant **Word2Vec** e
 
 ## Versions Disponibles
 
-### 🎯 Version Premium (Recommandée)
+### Version Premium (Recommandée)
 - **Fichier:** `app/streamlit_app_premium.py`
 - **Launcher:** `python launch_premium.py`
 - Dashboard Analytics avec KPIs temps réel (94% précision)
@@ -40,12 +40,12 @@ Un moteur de recommandation de musique hybride innovant combinant **Word2Vec** e
 - Interface premium avec thème Spotify personnalisé
 - 15+ visualisations Plotly interactives
 
-### 📊 Version Standard
+### Version Standard
 - **Fichier:** `app/streamlit_app_deployment.py`
 - Fonctionnalités de recommandation de base
 - Interface simple et efficace
 
-### 🎯 Version Basique
+### Version Basique
 - **Fichier:** `app/streamlit_app.py`
 - Prototype et tests
 
@@ -102,7 +102,7 @@ Créer un système de recommandation de playlists intelligent qui repose sur **d
 - **Export des évaluations** au format CSV
 - **Système d'amélioration continue** basé sur les retours
 
-### 🎵 Playlist Builder Avancé
+### Playlist Builder Avancé
 - **Construction manuelle** par recherche et sélection
 - **Auto-complétion intelligente** : même genre, similarité audio, même artiste
 - **Complétion par similarité** basée sur un morceau de référence
@@ -177,7 +177,7 @@ MUSIC-RECOMMENDER-HYBRID/
 - Export et partage social
 
 ###  Démo en Ligne
- [**Voir la démo live**](https://music-recommender-hybrid-premium.streamlit.app) *(Lien à mettre à jour après déploiement)*
+ [**Voir la démo live**][![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://music-recommender-hybrid-ynuznvv4ql95di2eyeh48j) 
 
 ## Démarrage rapide
 
