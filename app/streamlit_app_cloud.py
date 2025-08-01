@@ -126,16 +126,16 @@ songs_data = generate_demo_data()
 # Métriques
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("📊 Morceaux", "100K+")
+    st.metric(" Morceaux", "100K+")
 with col2:
-    st.metric("🎯 Précision", "94.2%")
+    st.metric(" Précision", "94.2%")
 with col3:
-    st.metric("⚡ Latence", "85ms")
+    st.metric(" Latence", "85ms")
 with col4:
-    st.metric("⭐ Satisfaction", "4.6/5")
+    st.metric(" Satisfaction", "4.6/5")
 
 # Interface de recommandation
-st.markdown("## 🎯 Générateur de Recommandations")
+st.markdown("##  Générateur de Recommandations")
 
 col_left, col_right = st.columns([1, 2])
 
@@ -149,13 +149,13 @@ with col_left:
     )
     
     # Paramètres IA
-    with st.expander("⚙️ Paramètres IA", expanded=True):
+    with st.expander(" Paramètres IA", expanded=True):
         alpha = st.slider("Balance Word2Vec/NLP", 0.0, 1.0, 0.7, 0.1)
         nb_recs = st.slider("Nombre de recommandations", 5, 15, 10)
         same_genre = st.checkbox("Même genre uniquement")
     
     # Bouton génération
-    if st.button("🚀 Générer Recommandations", type="primary"):
+    if st.button(" Générer Recommandations", type="primary"):
         with st.spinner("L'IA analyse..."):
             time.sleep(1)  # Simulation
             st.session_state['recommendations_ready'] = True
@@ -167,7 +167,7 @@ with col_right:
         # Générer recommendations simulées
         recs = random.sample(songs_data, nb_recs)
         
-        st.success(f"✅ {nb_recs} recommandations générées !")
+        st.success(f" {nb_recs} recommandations générées !")
         
         for i, song in enumerate(recs):
             score = random.uniform(0.7, 0.95)
@@ -189,23 +189,23 @@ with col_right:
                 st.markdown("---")
         
         # Export CSV
-        if st.button("📥 Exporter CSV"):
+        if st.button(" Exporter CSV"):
             csv_data = "Titre,Artiste,Genre,Score\n"
             for song in recs:
                 score = random.uniform(0.7, 0.95)
                 csv_data += f"{song['title']},{song['artist']},{song['genre']},{score:.3f}\n"
             
             st.download_button(
-                "💾 Télécharger",
+                " Télécharger",
                 csv_data,
                 "recommandations_musicales.csv",
                 "text/csv"
             )
     else:
-        st.info("👆 Configurez vos paramètres et cliquez sur 'Générer' pour voir vos recommandations personnalisées !")
+        st.info(" Configurez vos paramètres et cliquez sur 'Générer' pour voir vos recommandations personnalisées !")
         
         # Démo visuelle
-        st.markdown("### 📊 Capacités du Système")
+        st.markdown("###  Capacités du Système")
         
         demo_metrics = {
             "Précision": [88, 89, 91, 93, 94.2],
@@ -227,9 +227,9 @@ with col_right:
         st.pyplot(fig)
 
 # Fonctionnalités premium
-st.markdown("## 🚀 Fonctionnalités Premium")
+st.markdown("##  Fonctionnalités Premium")
 
-tab1, tab2, tab3 = st.tabs(["📊 Analytics", "🔍 Exploration", "🎵 Playlist Builder"])
+tab1, tab2, tab3 = st.tabs([" Analytics", " Exploration", "Playlist Builder"])
 
 with tab1:
     st.markdown("### Dashboard Analytics")
@@ -262,7 +262,7 @@ with tab2:
     
     selected_mood = st.selectbox("Choisir une humeur:", list(mood_map.keys()))
     
-    if st.button("🔍 Explorer"):
+    if st.button(" Explorer"):
         filtered_genres = mood_map[selected_mood].split("/")
         filtered_songs = [s for s in songs_data if s['genre'] in filtered_genres]
         
@@ -283,7 +283,7 @@ with tab3:
         st.markdown("**Ajouter des morceaux:**")
         song_to_add = st.selectbox("Choisir:", [f"{s['title']} - {s['artist']}" for s in songs_data[:10]])
         
-        if st.button("➕ Ajouter à la playlist"):
+        if st.button(" Ajouter à la playlist"):
             st.session_state.playlist.append(song_to_add)
             st.success("Ajouté!")
     
@@ -293,13 +293,13 @@ with tab3:
             st.write(f"• {song}")
         
         if st.session_state.playlist:
-            if st.button("📥 Exporter Playlist"):
+            if st.button(" Exporter Playlist"):
                 playlist_csv = "Position,Titre\n"
                 for i, song in enumerate(st.session_state.playlist):
                     playlist_csv += f"{i+1},{song}\n"
                 
                 st.download_button(
-                    "💾 Télécharger Playlist",
+                    " Télécharger Playlist",
                     playlist_csv,
                     "ma_playlist.csv",
                     "text/csv"

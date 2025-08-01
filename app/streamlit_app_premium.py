@@ -2028,7 +2028,7 @@ def create_about_page():
         # Coordonnées et liens
         st.markdown("### Contact & Réseaux")
 
-        contact_cols = st.columns(4)
+        contact_cols = st.columns(3)
 
         with contact_cols[0]:
             st.markdown("""
@@ -2044,8 +2044,8 @@ def create_about_page():
             st.markdown("""
             <div style='text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 10px;'>
                 <h4>LinkedIn</h4>
-                <a href='https://linkedin.com/in/beedigoua' style='text-decoration: none; color: #1DB954;'>
-                    /beedigoua
+                <a href='https://www.linkedin.com/in/goua-beedi-henri-a152bb1b2/' style='text-decoration: none; color: #1DB954;'>
+                    /goua-beedi-henri
                 </a>
             </div>
             """, unsafe_allow_html=True)
@@ -2064,30 +2064,30 @@ def create_about_page():
             st.markdown("""
             <div style='text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 10px;'>
                 <h4>Portfolio</h4>
-                <a href='#' style='text-decoration: none; color: #1DB954;'>
+                <a href='https://beedigoua.github.io/' style='text-decoration: none; color: #1DB954;'>
                     Voir Portfolio
                 </a>
             </div>
             """, unsafe_allow_html=True)
 
-        # Projets connexes
+"""        # Projets connexes
         st.markdown("### Autres Projets")
 
         other_projects = [
             {
-                'name': 'Chatbot NLP Avancé',
-                'desc': 'Assistant conversationnel avec BERT et transformers',
-                'tech': 'Python • Transformers • FastAPI'
+                'name': ,
+                'desc': ,
+                'tech': 
             },
             {
-                'name': 'Prédiction de Prix Crypto',
-                'desc': 'Modèle LSTM pour prédiction des cryptomonnaies',
-                'tech': 'TensorFlow • Time Series • Docker'
+                'name': ,
+                'desc': ,
+                'tech': 
             },
             {
-                'name': 'Génération d\'Art par IA',
-                'desc': 'GAN pour création artistique automatisée',
-                'tech': 'PyTorch • GAN • Streamlit'
+                'name': ,
+                'desc': ,
+                'tech': 
             }
         ]
 
@@ -2096,6 +2096,6 @@ def create_about_page():
                 st.markdown(f"**Description:** {project['desc']}")
                 st.markdown(f"**Technologies:** {project['tech']}")
                 st.markdown("*[Lien vers le projet]*")
-
+"""
 if __name__ == "__main__":
     main()
