@@ -2071,32 +2071,6 @@ def create_about_page():
             </div>
             """, unsafe_allow_html=True)
 
-"""        # Projets connexes
-        st.markdown("### Autres Projets")
 
-        other_projects = [
-            {
-                'name': ,
-                'desc': ,
-                'tech': 
-            },
-            {
-                'name': ,
-                'desc': ,
-                'tech': 
-            },
-            {
-                'name': ,
-                'desc': ,
-                'tech': 
-            }
-        ]
-
-        for project in other_projects:
-            with st.expander(f"**{project['name']}**"):
-                st.markdown(f"**Description:** {project['desc']}")
-                st.markdown(f"**Technologies:** {project['tech']}")
-                st.markdown("*[Lien vers le projet]*")
-"""
 if __name__ == "__main__":
     main()
